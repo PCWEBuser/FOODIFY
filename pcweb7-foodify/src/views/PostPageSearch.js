@@ -46,7 +46,7 @@ export default function PostPageHome() {
     <Form className="d-flex" onChange={SearchBlog}>
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="Search Food Name"
               className="me-2"
               aria-label="Search"
               onChange={(e) => setSearch(e.target.value)}
