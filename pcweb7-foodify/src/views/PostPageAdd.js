@@ -56,6 +56,7 @@ export default function PostPageAdd() {
               objectFit: "cover",
               width: "20rem",
               height: "20rem",
+              margin: "1rem"
             }}
           />
             <Form.Control
