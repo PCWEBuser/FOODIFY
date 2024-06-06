@@ -24,7 +24,6 @@ export default function Navigation() {
           <Nav className="me-auto">
             <Nav.Link href="/add">New Post</Nav.Link>
             <Nav.Link href="/">Singapore</Nav.Link>
-            <Nav.Link href="/">Overseas</Nav.Link>
             <Nav.Link onClick={() => signOut(auth)} href="/login">Sign Out!</Nav.Link>
           </Nav>
           <Form className="d-flex" onSubmit={SearchBlog}>
