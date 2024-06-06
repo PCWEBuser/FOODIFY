@@ -60,9 +60,11 @@ export default function PostPageDetails() {
                 <Card.Title as="h1">{caption}</Card.Title>
                 <Card.Title as="h5">Description: {description}</Card.Title>
                 <Card.Title as="h5">Country: {country}</Card.Title>
-                <Card.Title as="h5">Location: {mapUrl}</Card.Title>
+                <Card.Title as="h5">
+          Location: <a href={mapUrl} target="_blank" rel="noopener noreferrer">{mapUrl}</a>
+        </Card.Title>
                 <Card.Title as="h5">Last Visit: {date}</Card.Title>
-                <Card.Title as="h5">Ratings: {ratings}</Card.Title>
+                <Card.Title as="h5">Ratings: {ratings} ⭐</Card.Title>
                 <Button variant="info" href={`/update/${id}`}>Edit</Button>
                 {' '}
                 <Button variant="danger" onClick={() => deletePost(id)}
