@@ -17,18 +17,20 @@ export default function PostPageAdd() {
   const [ratings, setRatings] = useState("");
   const [country, setCountry] = useState("");
   const [mapUrl, setMapUrl] = useState("");
-
+  const [date, setDate] = useState('');
   const [previewImage, setPreviewImage] = useState(
     "https://zca.sg/img/placeholder"
   );
-
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
   const navigate = useNavigate();
 
   async function addPost() {
     const imageReference = ref(storage, `images/${image.name}`);
     const response = await uploadBytes(imageReference, image);
     const imageUrl = await getDownloadURL(response.ref);
-    await addDoc(collection(db, "posts"), { description,country,ratings,caption, image: imageUrl });
+    await addDoc(collection(db, "posts"), { date,description,mapUrl,country,ratings,caption, image: imageUrl });
     navigate("/");
   }
 
@@ -45,7 +47,7 @@ export default function PostPageAdd() {
       <Container fluid>
         <h1 style={{ marginBlock: "1rem" }}>Add Food Location</h1>
         <Col>
-        
+        <Form>
         <Form.Group className="mb-3" controlId="image">
             <Form.Label>Image</Form.Label>
             <Image
@@ -66,7 +68,7 @@ export default function PostPageAdd() {
               }}
             />
           </Form.Group>
-        <Form>
+        
           <Form.Group className="mb-3" controlId="caption">
             <Form.Label>Food Name</Form.Label>
             <Form.Control
@@ -76,6 +78,14 @@ export default function PostPageAdd() {
               onChange={(text) => setCaption(text.target.value)}
             />
           </Form.Group>
+          <Form.Group>
+        <Form.Label>Select Date</Form.Label>
+        <Form.Control
+          type="date"
+          value={date}
+          onChange={handleDateChange}
+        />
+      </Form.Group>
           <Form.Group className="mb-3" controlId="description">
             <Form.Label>Description</Form.Label>
             <Form.Control

@@ -5,7 +5,7 @@ import PostPageDetails from "./views/PostPageDetails";
 import PostPageHome from "./views/PostPageHome";
 import PostPageUpdate from "./views/PostPageUpdate";
 import SignUpPage from "./views/SignUpPage";
-
+import PostPageSearch from "./views/PostPageSearch";
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <Route path="/add" element={<PostPageAdd />} />
         <Route path="/post/:id" element={<PostPageDetails />} />
         <Route path="/update/:id" element={<PostPageUpdate />} />
+        <Route path="/search" element={<PostPageSearch />} />
 
       </Routes>
     </BrowserRouter>

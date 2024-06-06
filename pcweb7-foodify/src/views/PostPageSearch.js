@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef} from "react";
 import { Form,Container, Card, Button,Image, Nav, Navbar, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { signOut } from "firebase/auth";
 import Navigation from "../components/navigation";
-
-
 
 export default function PostPageHome() {
   const [posts, setPosts] = useState([]);
@@ -20,7 +18,6 @@ export default function PostPageHome() {
     setPosts(filteredPosts);
   };
 
-  
   // const [posts, setPosts] = useState([]);
 
   async function getAllPosts() {
@@ -45,7 +42,18 @@ export default function PostPageHome() {
     <>
       <Navigation />
     <Container>
-      <Row>
+        <br></br>
+    <Form className="d-flex" onChange={SearchBlog}>
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </Form>
+
+        <Row>
           <ImagesRow />
         </Row>
       </Container>
@@ -57,11 +65,11 @@ function ImageSquare({ post }) {
   const { image, id } = post;
   return (
     <Link
-      to={`post/${id}`}
+      to={`../post/${id}`}
       style={{
         width: "18rem",
         marginLeft: "1rem",
-        marginTop: "1rem",
+        marginTop: "2rem",
       }}
     >
       <Image

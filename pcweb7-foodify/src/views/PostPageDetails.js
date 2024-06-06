@@ -15,6 +15,7 @@ export default function PostPageDetails() {
   const [ratings, setRatings] = useState("");
   const [country, setCountry] = useState("");
   const [mapUrl, setMapUrl] = useState("");
+  const [date, setDate] = useState('');
   const params = useParams();
   const id = params.id;
   const [user, loading] = useAuthState(auth);
@@ -35,6 +36,7 @@ export default function PostPageDetails() {
     setCountry(post.country);
     setRatings(post.ratings);
     setMapUrl(post.mapUrl);
+    setDate(post.date);
     setDescription(post.description);
   }
 
@@ -59,6 +61,7 @@ export default function PostPageDetails() {
                 <Card.Title as="h5">Description: {description}</Card.Title>
                 <Card.Title as="h5">Country: {country}</Card.Title>
                 <Card.Title as="h5">Location: {mapUrl}</Card.Title>
+                <Card.Title as="h5">Last Visit: {date}</Card.Title>
                 <Card.Title as="h5">Ratings: {ratings}</Card.Title>
                 <Button variant="info" href={`/update/${id}`}>Edit</Button>
                 {' '}
